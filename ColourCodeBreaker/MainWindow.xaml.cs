@@ -18,11 +18,14 @@ namespace ColourCodeBreaker
 
         int ColourButton = 0; // Button id: Which button was clicked: 0 = none, 1 = Read, 2 = Green, 3 = Yellow, 4 = Orange, 5 = Blue, 6 = White
         int Position = 0;     // Position Id: Which of the four positions to put the currently selected colour
+        bool AllowDuplicateColours = false;
+        int[] CorrectCombinationIndexes = { 0, 1, 2, 3, 4, 5 };
         bool[] Pos = { false, false, false, false };
         Color[] Colours = new Color[]
         {
             Colors.Red, Colors.Green, Colors.Yellow, Colors.Orange, Colors.Blue, Colors.White
         };
+        int[] solution = { 0, 0, 0, 0 };
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -33,6 +36,38 @@ namespace ColourCodeBreaker
         private void NewGame()
         {
 
+        private void GenerateCode()
+        {
+            Random random = new Random();
+
+            if (AllowDuplicateColours)
+            {
+                for (int i = 0; i < solution.Length; i++)
+                {
+                    solution[i] = random.Next(1, 7);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < CorrectCombinationIndexes.Length; i++)
+                {
+                    int randomIndex = random.Next(CorrectCombinationIndexes.Length);
+                    int tempIndex = CorrectCombinationIndexes[randomIndex];
+                    CorrectCombinationIndexes[randomIndex] = CorrectCombinationIndexes[i];
+                    CorrectCombinationIndexes[i] = tempIndex;
+                }
+
+                int tempStartIndex = random.Next(0, 2);
+                for (int i = 0; i < solution.Length; ++i)
+                {
+                    solution[i] = CorrectCombinationIndexes[i + tempStartIndex];
+                }
+            }
+            // DEBUG START
+            label_Info.Content = solution[0].ToString() + ", " + solution[1].ToString() + ", " +
+                solution[2].ToString() + ", " + solution[3].ToString();
+            // DEBUG END
+        }
         }
 
         private void ColourWasChosen()
