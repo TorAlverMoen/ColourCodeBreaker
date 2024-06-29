@@ -50,6 +50,22 @@ namespace ColourCodeBreaker
             }
         }
 
+        private void SetDimButtonColours()
+        {
+            if (ColourButton >= 1 && ColourButton <= buttons.Length)
+            {
+                buttons[ColourButton - 1].Background = new SolidColorBrush(DimColours[ColourButton - 1]);
+            }
+        }
+
+        private void SetBrightButtonColours()
+        {
+            if (ColourButton >= 1 && ColourButton <= buttons.Length)
+            {
+                buttons[ColourButton - 1].Background = new SolidColorBrush(Colours[ColourButton - 1]);
+            }
+        }
+
         private void ResetPlayerGuessArray()
         {
             for (int i = 0; i < playerGuess.Length; i++)
@@ -134,6 +150,7 @@ namespace ColourCodeBreaker
         {
             btnConfirm.IsEnabled = false;
             label_Info.Content = "Please choose a position for the selected colour.";
+            SetDimButtonColours();
             // Now wait the for player to choose location of the colour
         }
 
@@ -141,6 +158,7 @@ namespace ColourCodeBreaker
         {
             btnConfirm.IsEnabled = true;
             Button tempButton = new Button();
+            SetBrightButtonColours();
             Pos[Position - 1] = true;
 
             switch (Position)
