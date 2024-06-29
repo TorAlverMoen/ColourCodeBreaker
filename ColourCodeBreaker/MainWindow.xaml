@@ -28,10 +28,19 @@
 
             </Grid>
         </GroupBox>
+        <GroupBox x:Name="groupBox_Difficulty" Header=" Difficulty settings " Margin="580,300,60,105" BorderThickness="0.4" Foreground="LightGray">
+            <Grid>
+                <Label x:Name="labelDifficulty" Content="Current difficulty:" Foreground="LightGray" Margin="10,0,0,0"/>
+                <Label x:Name="labelDisplayDiff" Content="[difficulty]" Foreground="LightGray" Margin="115,0,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="checkBox_DuplicateColours" Content=" Allow duplicate colours" HorizontalAlignment="Left" Margin="14,30,0,0" VerticalAlignment="Top" Foreground="LightGray" IsChecked="True" Checked="checkBox_DuplicateColours_Checked" Unchecked="checkBox_DuplicateColours_Unchecked"/>
+                <Button x:Name="btnDifficulty" Content="Change difficulty" HorizontalAlignment="Left" Margin="15,57,0,0" VerticalAlignment="Top" Height="25" Width="130" FontSize="14" Click="btnDifficulty_Click"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="groupBox_Info" Header=" Game Information " HorizontalAlignment="Left" Margin="40,300,0,0" VerticalAlignment="Top" Height="56" Width="510" BorderThickness="0.4">
             <Label x:Name="label_Info" Content="Lorem ipsum dolor sit amet, consectetur adipiscing elit" Foreground="LightGray"/>
         </GroupBox>
-        <Button x:Name="btnDifficulty" Content="Change difficulty" HorizontalAlignment="Left" Margin="70,365,0,0" VerticalAlignment="Top" Height="30" Width="130" FontSize="14" Click="btnDifficulty_Click"/>
-        <Button x:Name="btnNewGame" Content="New game" HorizontalAlignment="Left" Margin="230,365,0,0" VerticalAlignment="Top" Height="30" Width="130" FontSize="14" Click="btnNewGame_Click"/>
-        <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="390,365,0,0" VerticalAlignment="Top" Height="30" Width="130" FontSize="14" Click="btnExit_Click"/>
+        <Button x:Name="btnNewGame" Content="New game" HorizontalAlignment="Left" Margin="230,390,0,0" VerticalAlignment="Top" Height="30" Width="130" FontSize="14" Click="btnNewGame_Click"/>
+        <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="390,390,0,0" VerticalAlignment="Top" Height="30" Width="130" FontSize="14" Click="btnExit_Click"/>
+        <Label x:Name="label_Version" Content="[version]" HorizontalAlignment="Left" Margin="40,356,0,0" VerticalAlignment="Top" Foreground="DimGray"/>
     </Grid>
 </Window>
