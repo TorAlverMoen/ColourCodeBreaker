@@ -19,6 +19,7 @@ namespace ColourCodeBreaker
         int ColourButton = 0; // Button id: Which button was clicked: 0 = none, 1 = Read, 2 = Green, 3 = Yellow, 4 = Orange, 5 = Blue, 6 = White
         int Position = 0;     // Position Id: Which of the four positions to put the currently selected colour
         int Difficulty = 0;   // 0 = easy (20 turns), 1 = medium (10 turns), 2 = hard (5 turns)
+        bool IsNewGameStarted = false;
         bool AllowDuplicateColours = false;
         int[] CorrectCombinationIndexes = { 0, 1, 2, 3, 4, 5 };
         bool[] Pos = { false, false, false, false };
@@ -27,6 +28,7 @@ namespace ColourCodeBreaker
             Colors.Red, Colors.Green, Colors.Yellow, Colors.Orange, Colors.Blue, Colors.White
         };
         int[] solution = { 0, 0, 0, 0 };
+        int[] playerGuess = { 0, 0, 0, 0 };
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -34,8 +36,26 @@ namespace ColourCodeBreaker
             NewGame();
         }
 
-        private void NewGame()
+        private void ResetColourPositions()
         {
+            btnPG1.Background = new SolidColorBrush(Colors.DimGray);
+            btnPG2.Background = new SolidColorBrush(Colors.DimGray);
+            btnPG3.Background = new SolidColorBrush(Colors.DimGray);
+            btnPG4.Background = new SolidColorBrush(Colors.DimGray);
+
+            for (int i = 0; i < Pos.Length; i++)
+            {
+                Pos[i] = false;
+            }
+        }
+
+        private void ResetPlayerGuessArray()
+        {
+            for (int i = 0; i < playerGuess.Length; i++)
+            {
+                playerGuess[i] = 0;
+            }
+        }
 
         private void GenerateCode()
         {
@@ -99,6 +119,14 @@ namespace ColourCodeBreaker
             }
         }
 
+
+        private void NewGame()
+        {
+            ResetColourPositions();
+            ResetPlayerGuessArray();
+            GenerateCode();
+            IsNewGameStarted = true;
+            DisplayDifficulty();
         }
 
         private void ColourWasChosen()
