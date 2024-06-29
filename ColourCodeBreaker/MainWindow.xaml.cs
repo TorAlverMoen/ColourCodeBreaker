@@ -32,7 +32,8 @@ namespace ColourCodeBreaker
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            label_Info.Content = "Current version is v" + Assembly.GetExecutingAssembly().GetName().Version;
+            label_Title.Content = "Colour code breaker";
+            label_Version.Content = "v" + Assembly.GetExecutingAssembly().GetName().Version;
             NewGame();
         }
 
@@ -164,7 +165,12 @@ namespace ColourCodeBreaker
             label_Info.Content = positionTemp;
             if (positionTemp)
             {
-                label_Info.Content = "You must choose a colour all four positions to proceed";
+                label_Info.Content = "You must place a colour in all four positions to proceed";
+            }
+            else
+            {
+                ResetColourPositions();
+                // Check solution
             }
         }
 
