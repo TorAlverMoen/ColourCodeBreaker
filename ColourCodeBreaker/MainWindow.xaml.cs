@@ -86,8 +86,8 @@ namespace ColourCodeBreaker
                 }
             }
             // DEBUG START
-            label_Info.Content = solution[0].ToString() + ", " + solution[1].ToString() + ", " +
-                solution[2].ToString() + ", " + solution[3].ToString();
+            //label_Info.Content = solution[0].ToString() + ", " + solution[1].ToString() + ", " +
+            //    solution[2].ToString() + ", " + solution[3].ToString();
             // DEBUG END
         }
 
@@ -162,7 +162,7 @@ namespace ColourCodeBreaker
         private void btnConfirm_Click(object sender, RoutedEventArgs e)
         {
             bool positionTemp = Array.Exists(Pos, element => element == false);
-            label_Info.Content = positionTemp;
+            //label_Info.Content = positionTemp;   // DEBUG
             if (positionTemp)
             {
                 label_Info.Content = "You must place a colour in all four positions to proceed";
