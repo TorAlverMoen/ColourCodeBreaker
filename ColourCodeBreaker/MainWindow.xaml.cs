@@ -21,28 +21,35 @@ namespace ColourCodeBreaker
         int Difficulty = 0;   // 0 = easy (20 turns), 1 = medium (10 turns), 2 = hard (5 turns)
         bool IsNewGameStarted = false;
         bool AllowDuplicateColours = false;
-        int[] CorrectCombinationIndexes = { 0, 1, 2, 3, 4, 5 };
+        string appVersion = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "-----";
+        int CorrectPlacement = 0;
+        int CorrectColour = 0;
+
         bool[] Pos = { false, false, false, false };
-        Color[] Colours = new Color[]
-        {
-            Colors.Red, Colors.Green, Colors.Yellow, Colors.Orange, Colors.Blue, Colors.White
-        };
+        int[] CorrectCombinationIndexes = { 0, 1, 2, 3, 4, 5 };
+        Button[] buttons = new Button[6];
+        Button[] pgbuttons = new Button[4];
+        Color[] Colours = [ Colors.Red, Colors.Green, Colors.Yellow, Colors.Orange, Colors.Blue, Colors.White ];
+        Color[] DimColours = [ Colors.DarkRed, Colors.DarkGreen, Color.FromRgb(139, 128, 0), Colors.DarkOrange, Colors.DarkBlue, Color.FromRgb(225, 217, 209) ];
+        string[] difficultyLevels = { "Easy", "Medium", "Hard" };
         int[] solution = { 0, 0, 0, 0 };
         int[] playerGuess = { 0, 0, 0, 0 };
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             label_Title.Content = "Colour code breaker";
-            label_Version.Content = "v" + Assembly.GetExecutingAssembly().GetName().Version;
+            label_Version.Content = appVersion;
+            buttons = new Button[] { btnRed, btnGreen, btnYellow, btnOrange, btnBlue, btnWhite };   // Init buttons array
+            pgbuttons = new Button[] { btnPG1, btnPG2, btnPG3, btnPG4 };   // Init position buttons array
             NewGame();
         }
 
         private void ResetColourPositions()
         {
-            btnPG1.Background = new SolidColorBrush(Colors.DimGray);
-            btnPG2.Background = new SolidColorBrush(Colors.DimGray);
-            btnPG3.Background = new SolidColorBrush(Colors.DimGray);
-            btnPG4.Background = new SolidColorBrush(Colors.DimGray);
+            foreach (var button in pgbuttons)
+            {
+                button.Background = new SolidColorBrush(Colors.DimGray);
+            }
 
             for (int i = 0; i < Pos.Length; i++)
             {
@@ -120,12 +127,15 @@ namespace ColourCodeBreaker
         private void DisplayDifficulty()
         {
             string tempDifficulty = "";
-            switch (Difficulty)
+            if (Difficulty >= 0 && Difficulty < difficultyLevels.Length)
             {
-                case 0: tempDifficulty = "Easy"; break;
-                case 1: tempDifficulty = "Medium"; break;
-                case 2: tempDifficulty = "Hard"; break;
+                tempDifficulty = difficultyLevels[Difficulty];
             }
+            else
+            {
+                tempDifficulty = "Brain exploded!";   // This is a bad this and should never happen
+            }
+
             if (!IsNewGameStarted)
             {
                 label_Info.Content = "Sorry but the difficulty cannot be changed mid-game!";
@@ -135,7 +145,6 @@ namespace ColourCodeBreaker
                 labelDisplayDiff.Content = tempDifficulty;
             }
         }
-
 
         private void NewGame()
         {
@@ -157,17 +166,17 @@ namespace ColourCodeBreaker
         private void PlaceColour()
         {
             btnConfirm.IsEnabled = true;
-            Button tempButton = new Button();
             SetBrightButtonColours();
             Pos[Position - 1] = true;
 
-            switch (Position)
+            if (ColourButton != 0 && Position >= 1 && Position <= pgbuttons.Length)
             {
-                case 1: tempButton = btnPG1; break;
-                case 2: tempButton = btnPG2; break;
-                case 3: tempButton = btnPG3; break;
-                case 4: tempButton = btnPG4; break;
+                pgbuttons[Position - 1].Background = new SolidColorBrush(Colours[ColourButton - 1]);
+                label_Info.Content = "The colour was placed in position " + Position.ToString();
+                playerGuess[Position - 1] = ColourButton;
+                ColourButton = 0;
             }
+        }
 
             if (ColourButton != 0)
             {
