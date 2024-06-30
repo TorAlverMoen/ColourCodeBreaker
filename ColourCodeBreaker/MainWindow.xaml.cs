@@ -155,7 +155,7 @@ namespace ColourCodeBreaker
             GenerateCode();
             IsNewGameStarted = true;
             DisplayDifficulty();
-            // TODO: Reset feedback display
+            ResetFeedbackLabels();
         }
 
         private void ColourWasChosen()
@@ -222,6 +222,14 @@ namespace ColourCodeBreaker
             {
                 // TEST: Check correct colours in the wrong place
                 CheckCorrectColoursPlacedWrong();
+            }
+        }
+
+        private void ResetFeedbackLabels()
+        {
+            for(int i = 0; i < feedbackLabels.Length; i++)
+            {
+                feedbackLabels[i].Background = new SolidColorBrush(Colors.Gray);
             }
         }
 
