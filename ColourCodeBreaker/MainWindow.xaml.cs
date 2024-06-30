@@ -178,11 +178,49 @@ namespace ColourCodeBreaker
             }
         }
 
-            if (ColourButton != 0)
+        private void CheckCorrectColoursPlacedWrong()
+        {
+            CorrectColour = 0;
+            bool[] matchedCorrectCombinations = new bool[4];
+            bool[] matchedPlayerGuess = new bool[4];
+
+            for (int i = 0; i < 4; i++)
             {
-                tempButton.Background = new SolidColorBrush(Colours[ColourButton - 1]);
-                label_Info.Content = "The colour was placed in position " + Position.ToString();
-                ColourButton = 0;
+                if (playerGuess[i] == solution[i])
+                {
+                    matchedCorrectCombinations[i] = true;
+                    matchedPlayerGuess[i] = true;
+                }
+            }
+
+            for (int i = 0;i < 4; i++)   // Nest-o-rama
+            {
+                if (!matchedPlayerGuess[i])
+                {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        if (!matchedCorrectCombinations[j] && playerGuess[i] == solution[j])
+                        {
+                            CorrectColour++;
+                            matchedCorrectCombinations[j] = true;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void CheckSolution()
+        {
+            // Check correct colours in the correct place
+            CorrectPlacement = playerGuess.Zip(solution, (guess, correct) => guess == correct).Count(match => match);
+
+            if (CorrectPlacement < 4)
+            {
+                // TEST: Check correct colours in the wrong place
+                CheckCorrectColoursPlacedWrong();
+            }
+        }
             }
         }
 
@@ -196,8 +234,8 @@ namespace ColourCodeBreaker
             }
             else
             {
-                ResetColourPositions();
-                // Check solution
+                // TODO: Move to history
+                CheckSolution();
             }
         }
 
