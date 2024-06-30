@@ -34,6 +34,7 @@ namespace ColourCodeBreaker
         string[] difficultyLevels = { "Easy", "Medium", "Hard" };
         int[] solution = { 0, 0, 0, 0 };
         int[] playerGuess = { 0, 0, 0, 0 };
+        Label[] feedbackLabels = new Label[4];
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -41,6 +42,7 @@ namespace ColourCodeBreaker
             label_Version.Content = appVersion;
             buttons = new Button[] { btnRed, btnGreen, btnYellow, btnOrange, btnBlue, btnWhite };   // Init buttons array
             pgbuttons = new Button[] { btnPG1, btnPG2, btnPG3, btnPG4 };   // Init position buttons array
+            feedbackLabels = new Label[] { label_Feedback1, label_Feedback2, label_Feedback3, label_Feedback4 }; // Init feedback array
             NewGame();
         }
 
@@ -153,6 +155,7 @@ namespace ColourCodeBreaker
             GenerateCode();
             IsNewGameStarted = true;
             DisplayDifficulty();
+            // TODO: Reset feedback display
         }
 
         private void ColourWasChosen()
@@ -221,6 +224,26 @@ namespace ColourCodeBreaker
                 CheckCorrectColoursPlacedWrong();
             }
         }
+
+        private void DisplayFeedback()
+        {
+            // Black is correct colour in the correct position
+            // White is correct colour in the wrong position
+
+            // Display black
+            for (int i = 0; i < CorrectPlacement; i++)
+            {
+                feedbackLabels[i].Background = new SolidColorBrush(Colors.Black);
+            }
+
+            // Display white
+            if (CorrectPlacement < 4)
+            {
+                int j = CorrectPlacement;
+                for (int i = 0; i < CorrectColour; i++)
+                {
+                    feedbackLabels[j + i].Background = new SolidColorBrush(Colors.White);
+                }
             }
         }
 
@@ -236,6 +259,7 @@ namespace ColourCodeBreaker
             {
                 // TODO: Move to history
                 CheckSolution();
+                DisplayFeedback();
             }
         }
 
