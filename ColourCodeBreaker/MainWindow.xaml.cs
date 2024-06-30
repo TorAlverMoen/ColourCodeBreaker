@@ -104,7 +104,7 @@ namespace ColourCodeBreaker
                     CorrectCombinationIndexes[i] = tempIndex;
                 }
 
-                int tempStartIndex = random.Next(0, 2);
+                int tempStartIndex = random.Next(3);
                 for (int i = 0; i < solution.Length; ++i)
                 {
                     solution[i] = CorrectCombinationIndexes[i + tempStartIndex];
