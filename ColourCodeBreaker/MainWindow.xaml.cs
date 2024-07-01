@@ -184,10 +184,10 @@ namespace ColourCodeBreaker
         private void CheckCorrectColoursPlacedWrong()
         {
             CorrectColour = 0;
-            bool[] matchedCorrectCombinations = new bool[4];
-            bool[] matchedPlayerGuess = new bool[4];
+            bool[] matchedCorrectCombinations = new bool[pgbuttons.Length];
+            bool[] matchedPlayerGuess = new bool[pgbuttons.Length];
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < pgbuttons.Length; i++)
             {
                 if (playerGuess[i] == solution[i])
                 {
@@ -196,11 +196,11 @@ namespace ColourCodeBreaker
                 }
             }
 
-            for (int i = 0;i < 4; i++)   // Nest-o-rama
+            for (int i = 0;i < pgbuttons.Length; i++)   // Nest-o-rama
             {
                 if (!matchedPlayerGuess[i])
                 {
-                    for (int j = 0; j < 4; j++)
+                    for (int j = 0; j < pgbuttons.Length; j++)
                     {
                         if (!matchedCorrectCombinations[j] && playerGuess[i] == solution[j])
                         {
@@ -232,7 +232,7 @@ namespace ColourCodeBreaker
                 }
             }
 
-            if (CorrectPlacement < 4)
+            if (CorrectPlacement < pgbuttons.Length)
             {
                 // TEST: Check correct colours in the wrong place
                 CheckCorrectColoursPlacedWrong();
@@ -259,7 +259,7 @@ namespace ColourCodeBreaker
             }
 
             // Display white
-            if (CorrectPlacement < 4)
+            if (CorrectPlacement < pgbuttons.Length)
             {
                 int j = CorrectPlacement;
                 for (int i = 0; i < CorrectColour; i++)
