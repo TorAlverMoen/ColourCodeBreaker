@@ -215,8 +215,22 @@ namespace ColourCodeBreaker
 
         private void CheckSolution()
         {
+            // I asked ChatGPT for an alternative way to find the number of correct colours it came up with this:
+            ///    CorrectPlacement = playerGuess.Zip(solution, (guess, correct) => guess == correct).Count(match => match);
+            // It uses LINQ which creates a performance overhead but it is only one line and could be considered easier to
+            // read if you know and are comfortable with LINQ. The code below is doing the same thing but it is more verbose
+            // but at the same time easier for the compiler to optimize!
+            // Is performance in anyway critical here? No! But I still prefer to write the code as it is below!
+
             // Check correct colours in the correct place
-            CorrectPlacement = playerGuess.Zip(solution, (guess, correct) => guess == correct).Count(match => match);
+            CorrectPlacement = 0;
+            for (int i = 0; i < pgbuttons.Length; i++)
+            {
+                if (playerGuess[i] == solution[i])
+                {
+                    CorrectPlacement++;
+                }
+            }
 
             if (CorrectPlacement < 4)
             {
