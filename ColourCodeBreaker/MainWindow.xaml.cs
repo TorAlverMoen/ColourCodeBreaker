@@ -215,7 +215,7 @@ namespace ColourCodeBreaker
 
         private void CheckSolution()
         {
-            // I asked ChatGPT for an alternative way to find the number of correct colours it came up with this:
+            // I asked ChatGPT for an alternative way to find the number of correct colours and it came up with this:
             ///    CorrectPlacement = playerGuess.Zip(solution, (guess, correct) => guess == correct).Count(match => match);
             // It uses LINQ which creates a performance overhead but it is only one line and could be considered easier to
             // read if you know and are comfortable with LINQ. The code below is doing the same thing but it is more verbose
@@ -272,7 +272,6 @@ namespace ColourCodeBreaker
         private void btnConfirm_Click(object sender, RoutedEventArgs e)
         {
             bool positionTemp = Array.Exists(Pos, element => element == false);
-            //label_Info.Content = positionTemp;   // DEBUG
             if (positionTemp)
             {
                 label_Info.Content = "You must place a colour in all four positions to proceed";
