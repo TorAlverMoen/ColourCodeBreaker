@@ -18,8 +18,8 @@ namespace ColourCodeBreaker
 
         int ColourButton = 0; // Button id: Which button was clicked: 0 = none, 1 = Read, 2 = Green, 3 = Yellow, 4 = Orange, 5 = Blue, 6 = White
         int Position = 0;     // Position Id: Which of the four positions to put the currently selected colour
-        int Difficulty = 0;   // 0 = easy (20 turns), 1 = medium (10 turns), 2 = hard (5 turns)
-        bool IsNewGameStarted = false;
+        //int Difficulty = 0;   // 0 = easy (20 turns), 1 = medium (10 turns), 2 = hard (5 turns)
+        int CurrentTurn = 0;
         bool AllowDuplicateColours = false;
         string appVersion = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "-----";
         int CorrectPlacement = 0;
@@ -31,7 +31,6 @@ namespace ColourCodeBreaker
         Button[] pgbuttons = new Button[4];
         Color[] Colours = [ Colors.Red, Colors.Green, Colors.Yellow, Colors.Orange, Colors.Blue, Colors.White ];
         Color[] DimColours = [ Colors.DarkRed, Colors.DarkGreen, Color.FromRgb(139, 128, 0), Colors.DarkOrange, Colors.DarkBlue, Color.FromRgb(225, 217, 209) ];
-        string[] difficultyLevels = { "Easy", "Medium", "Hard" };
         int[] solution = { 0, 0, 0, 0 };
         int[] playerGuess = { 0, 0, 0, 0 };
         Label[] feedbackLabels = new Label[4];
@@ -116,45 +115,11 @@ namespace ColourCodeBreaker
             // DEBUG END
         }
 
-        private void ChangeDifficulty()
-        {
-            Difficulty++;
-            if (Difficulty > 2)
-            {
-                Difficulty = 0;
-            }
-            DisplayDifficulty();
-        }
-
-        private void DisplayDifficulty()
-        {
-            string tempDifficulty = "";
-            if (Difficulty >= 0 && Difficulty < difficultyLevels.Length)
-            {
-                tempDifficulty = difficultyLevels[Difficulty];
-            }
-            else
-            {
-                tempDifficulty = "Brain exploded!";   // This is a bad this and should never happen
-            }
-
-            if (!IsNewGameStarted)
-            {
-                label_Info.Content = "Sorry but the difficulty cannot be changed mid-game!";
-            }
-            else
-            {
-                labelDisplayDiff.Content = tempDifficulty;
-            }
-        }
-
         private void NewGame()
         {
             ResetColourPositions();
             ResetPlayerGuessArray();
             GenerateCode();
-            IsNewGameStarted = true;
-            DisplayDifficulty();
             ResetFeedbackLabels();
         }
 
@@ -196,7 +161,7 @@ namespace ColourCodeBreaker
                 }
             }
 
-            for (int i = 0;i < pgbuttons.Length; i++)   // Nest-o-rama
+            for (int i = 0; i < pgbuttons.Length; i++)   // Nest-o-rama
             {
                 if (!matchedPlayerGuess[i])
                 {
@@ -237,11 +202,20 @@ namespace ColourCodeBreaker
                 // TEST: Check correct colours in the wrong place
                 CheckCorrectColoursPlacedWrong();
             }
+            if (CorrectPlacement == pgbuttons.Length)
+            {
+                // The player wins
+            }
+        }
+
+        private void UpdateTurns()
+        {
+            label_TurnDisplay.Content = CurrentTurn.ToString();
         }
 
         private void ResetFeedbackLabels()
         {
-            for(int i = 0; i < feedbackLabels.Length; i++)
+            for (int i = 0; i < feedbackLabels.Length; i++)
             {
                 feedbackLabels[i].Background = new SolidColorBrush(Colors.Gray);
             }
@@ -278,9 +252,9 @@ namespace ColourCodeBreaker
             }
             else
             {
-                // TODO: Move to history
                 CheckSolution();
                 DisplayFeedback();
+                // TODO: Move to history
             }
         }
 
@@ -342,11 +316,6 @@ namespace ColourCodeBreaker
         {
             ColourButton = 6;
             ColourWasChosen();
-        }
-
-        private void btnDifficulty_Click(object sender, RoutedEventArgs e)
-        {
-            ChangeDifficulty();
         }
 
         private void btnNewGame_Click(object sender, RoutedEventArgs e)

@@ -25,6 +25,8 @@
                 <Label x:Name="label_Feedback2" HorizontalAlignment="Left" Margin="510,42,0,0" VerticalAlignment="Top" Height="15" Width="15" Background="Gray"/>
                 <Label x:Name="label_Feedback3" HorizontalAlignment="Left" Margin="510,63,0,0" VerticalAlignment="Top" Height="15" Width="15" Background="Gray"/>
                 <Label x:Name="label_Feedback4" HorizontalAlignment="Left" Margin="510,84,0,0" VerticalAlignment="Top" Height="15" Width="15" Background="Gray"/>
+                <Label x:Name="label_Turns" Content="Current turn:" FontSize="14" HorizontalAlignment="Left" Margin="405,120,0,0" VerticalAlignment="Top" Foreground="LightGray"/>
+                <Label x:Name="label_TurnDisplay" Content="[turn]" FontSize="14" HorizontalAlignment="Left" Margin="490,120,0,0" VerticalAlignment="Top" Foreground="LightGray"/>
             </Grid>
         </GroupBox>
         <GroupBox x:Name="groupBox_History" Header=" History " Margin="630,60,0,0" BorderThickness="0.4" Foreground="LightGray" HorizontalAlignment="Left" VerticalAlignment="Top" Width="260" Height="230">
@@ -32,12 +34,12 @@
 
             </Grid>
         </GroupBox>
-        <GroupBox x:Name="groupBox_Difficulty" Header=" Difficulty settings " Margin="630,300,0,0" BorderThickness="0.4" Foreground="LightGray" HorizontalAlignment="Left" VerticalAlignment="Top" Width="260" Height="120">
+        <GroupBox x:Name="groupBox_Difficulty" Header=" Settings " Margin="630,300,0,0" BorderThickness="0.4" Foreground="LightGray" HorizontalAlignment="Left" VerticalAlignment="Top" Width="260" Height="120">
             <Grid>
-                <Label x:Name="labelDifficulty" Content="Current difficulty:" Foreground="LightGray" Margin="10,0,0,0"/>
-                <Label x:Name="labelDisplayDiff" Content="[difficulty]" Foreground="LightGray" Margin="115,0,0,0" VerticalAlignment="Top"/>
+                <!--<Label x:Name="labelDifficulty" Content="Current difficulty:" Foreground="LightGray" Margin="10,0,0,0"/>
+                <Label x:Name="labelDisplayDiff" Content="[difficulty]" Foreground="LightGray" Margin="115,0,0,0" VerticalAlignment="Top"/>-->
                 <CheckBox x:Name="checkBox_DuplicateColours" Content=" Allow duplicate colours" HorizontalAlignment="Left" Margin="14,30,0,0" VerticalAlignment="Top" Foreground="LightGray" IsChecked="True" Checked="checkBox_DuplicateColours_Checked" Unchecked="checkBox_DuplicateColours_Unchecked"/>
-                <Button x:Name="btnDifficulty" Content="Change difficulty" HorizontalAlignment="Left" Margin="15,57,0,0" VerticalAlignment="Top" Height="25" Width="130" FontSize="14" Click="btnDifficulty_Click"/>
+                <!--<Button x:Name="btnDifficulty" Content="Change difficulty" HorizontalAlignment="Left" Margin="15,57,0,0" VerticalAlignment="Top" Height="25" Width="130" FontSize="14" Click="btnDifficulty_Click"/>-->
             </Grid>
         </GroupBox>
         <GroupBox x:Name="groupBox_Info" Header=" Game Information " HorizontalAlignment="Left" Margin="40,300,0,0" VerticalAlignment="Top" Height="56" Width="560" BorderThickness="0.4">
