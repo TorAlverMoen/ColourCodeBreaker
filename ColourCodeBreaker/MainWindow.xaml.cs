@@ -39,9 +39,9 @@ namespace ColourCodeBreaker
         {
             label_Title.Content = "Colour code breaker";
             label_Version.Content = appVersion;
-            buttons = new Button[] { btnRed, btnGreen, btnYellow, btnOrange, btnBlue, btnWhite };   // Init buttons array
-            pgbuttons = new Button[] { btnPG1, btnPG2, btnPG3, btnPG4 };   // Init position buttons array
-            feedbackLabels = new Label[] { label_Feedback1, label_Feedback2, label_Feedback3, label_Feedback4 }; // Init feedback array
+            buttons = [btnRed, btnGreen, btnYellow, btnOrange, btnBlue, btnWhite];   // Init buttons array
+            pgbuttons = [btnPG1, btnPG2, btnPG3, btnPG4];   // Init position buttons array
+            feedbackLabels = [label_Feedback1, label_Feedback2, label_Feedback3, label_Feedback4]; // Init feedback array
             NewGame();
         }
 
