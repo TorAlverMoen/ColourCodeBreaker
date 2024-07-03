@@ -19,7 +19,7 @@ namespace ColourCodeBreaker
         int ColourButton = 0; // Button id: Which button was clicked: 0 = none, 1 = Read, 2 = Green, 3 = Yellow, 4 = Orange, 5 = Blue, 6 = White
         int Position = 0;     // Position Id: Which of the four positions to put the currently selected colour
         //int Difficulty = 0;   // 0 = easy (20 turns), 1 = medium (10 turns), 2 = hard (5 turns)
-        int CurrentTurn = 0;
+        int CurrentTurn = 20;
         bool AllowDuplicateColours = false;
         string appVersion = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "-----";
         int CorrectPlacement = 0;
@@ -256,6 +256,10 @@ namespace ColourCodeBreaker
                 DisplayFeedback();
                 // TODO: Move to history
             }
+        }
+
+        private void btnDifficulty_Click(object sender, RoutedEventArgs e)
+        {
         }
 
         private void btnPG1_Click(object sender, RoutedEventArgs e)
