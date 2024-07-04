@@ -25,13 +25,12 @@
                 <Label x:Name="label_Feedback2" HorizontalAlignment="Left" Margin="510,42,0,0" VerticalAlignment="Top" Height="15" Width="15" Background="Gray"/>
                 <Label x:Name="label_Feedback3" HorizontalAlignment="Left" Margin="510,63,0,0" VerticalAlignment="Top" Height="15" Width="15" Background="Gray"/>
                 <Label x:Name="label_Feedback4" HorizontalAlignment="Left" Margin="510,84,0,0" VerticalAlignment="Top" Height="15" Width="15" Background="Gray"/>
-                <Label x:Name="label_Turns" Content="Current turn:" FontSize="14" HorizontalAlignment="Left" Margin="405,120,0,0" VerticalAlignment="Top" Foreground="LightGray"/>
-                <Label x:Name="label_TurnDisplay" Content="[turn]" FontSize="14" HorizontalAlignment="Left" Margin="490,120,0,0" VerticalAlignment="Top" Foreground="LightGray"/>
             </Grid>
         </GroupBox>
-        <GroupBox x:Name="groupBox_History" Header=" History " Margin="630,60,0,0" BorderThickness="0.4" Foreground="LightGray" HorizontalAlignment="Left" VerticalAlignment="Top" Width="260" Height="230">
-            <Grid x:Name="HistoryGrid">
-
+        <GroupBox x:Name="groupBox_Turns" Header=" Turns " Margin="630,220,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="260" Height="70" BorderThickness="0.4">
+            <Grid>
+                <Label x:Name="labelTurns" Content="Current turn:" Margin="10,8,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="LightGray" FontSize="14"/>
+                <Label x:Name="labelTurnsDisplay" Content="[turn]" Margin="100,8,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="LightGray" FontSize="14"/>
             </Grid>
         </GroupBox>
         <GroupBox x:Name="groupBox_Difficulty" Header=" Settings " Margin="630,300,0,0" BorderThickness="0.4" Foreground="LightGray" HorizontalAlignment="Left" VerticalAlignment="Top" Width="260" Height="120">

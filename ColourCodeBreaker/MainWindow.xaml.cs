@@ -210,7 +210,7 @@ namespace ColourCodeBreaker
 
         private void UpdateTurns()
         {
-            label_TurnDisplay.Content = CurrentTurn.ToString();
+            labelTurnsDisplay.Content = CurrentTurn.ToString();
         }
 
         private void ResetFeedbackLabels()
