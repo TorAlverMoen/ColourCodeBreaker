@@ -45,7 +45,7 @@
             <Label x:Name="label_Info" Content="[info]" Foreground="LightGray"/>
         </GroupBox>
         <Button x:Name="btnAbout" Content="About" Margin="155,390,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="130" FontSize="14" Click="btnAbout_Click"/>
-        <Button x:Name="btnHowToPlay" Content="How to play" Margin="325,390,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="130" FontSize="14"/>
+        <Button x:Name="btnHowToPlay" Content="How to play" Margin="325,390,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="130" FontSize="14" Click="btnHowToPlay_Click"/>
         <Button x:Name="btnNewGame" Content="New game" HorizontalAlignment="Left" Margin="495,390,0,0" VerticalAlignment="Top" Height="30" Width="130" FontSize="14" Click="btnNewGame_Click"/>
         <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="665,390,0,0" VerticalAlignment="Top" Height="30" Width="130" FontSize="14" Click="btnExit_Click"/>
         <Label x:Name="label_Version" Content="[version]" HorizontalAlignment="Left" Margin="40,360,0,0" VerticalAlignment="Top" Foreground="Gray"/>

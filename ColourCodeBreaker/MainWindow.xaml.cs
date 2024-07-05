@@ -424,5 +424,11 @@ namespace ColourCodeBreaker
             AboutBox aboutBox = new AboutBox();
             aboutBox.ShowDialog();
         }
+
+        private void btnHowToPlay_Click(object sender, RoutedEventArgs e)
+        {
+            HowToPlay gameRules = new HowToPlay();
+            gameRules.ShowDialog();
+        }
     }
 }
