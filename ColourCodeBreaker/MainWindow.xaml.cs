@@ -397,5 +397,11 @@ namespace ColourCodeBreaker
         {
             AllowDuplicateColours = false;
         }
+
+        private void btnAbout_Click(object sender, RoutedEventArgs e)
+        {
+            AboutBox aboutBox = new AboutBox();
+            aboutBox.ShowDialog();
+        }
     }
 }
