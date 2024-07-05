@@ -21,7 +21,7 @@ namespace ColourCodeBreaker
         int Difficulty = 0;   // 0 = easy (20 turns), 1 = medium (10 turns), 2 = hard (5 turns)
         int CurrentTurn = 20;
         bool AllowDuplicateColours = false;
-        string appVersion = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "-----";
+        string appVersion = "v" + Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "-----";
         int CorrectPlacement = 0;
         int CorrectColour = 0;
         bool bIsGameOngoing = false;
