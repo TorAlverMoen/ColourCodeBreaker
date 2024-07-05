@@ -25,6 +25,7 @@ namespace ColourCodeBreaker
         int CorrectPlacement = 0;
         int CorrectColour = 0;
         bool bIsGameOngoing = false;
+        bool bDidThePlayerWin = false;
 
         bool[] Pos = { false, false, false, false };
         int[] CorrectCombinationIndexes = { 0, 1, 2, 3, 4, 5 };
@@ -124,8 +125,7 @@ namespace ColourCodeBreaker
                 }
             }
             // DEBUG START
-            //label_Info.Content = solution[0].ToString() + ", " + solution[1].ToString() + ", " +
-            //    solution[2].ToString() + ", " + solution[3].ToString();
+            //label_Info.Content = solution[0].ToString() + ", " + solution[1].ToString() + ", " + solution[2].ToString() + ", " + solution[3].ToString();
             // DEBUG END
         }
 
@@ -136,6 +136,7 @@ namespace ColourCodeBreaker
             GenerateCode();
             ResetFeedbackLabels();
             bIsGameOngoing = false;
+            bDidThePlayerWin = false;
             btnDifficulty.IsEnabled = true;
             SetTurns();
             DisplayTurns();
@@ -230,6 +231,8 @@ namespace ColourCodeBreaker
             if (CorrectPlacement == pgbuttons.Length)
             {
                 // The player wins
+                bDidThePlayerWin = true;
+                label_Info.Content = "You win! The correct code was found!";
             }
         }
 
@@ -238,6 +241,9 @@ namespace ColourCodeBreaker
             if (CurrentTurn <= 0)
             {
                 // Player loses
+                label_Info.Content = "You lose! The correct colour code was not found in the selected number of turns!";
+                MessageBox.Show("The correct colour code was not found in the selected number of turns!", "You lose!", MessageBoxButton.OK);
+                NewGame();
             }
             else
             {
@@ -310,6 +316,11 @@ namespace ColourCodeBreaker
                 DisplayTurns();
                 CheckSolution();
                 DisplayFeedback();
+                if (bDidThePlayerWin)
+                {
+                    MessageBox.Show("You did it! The correct code was found!", "You win!", MessageBoxButton.OK);
+                    NewGame();
+                }
             }
         }
 
