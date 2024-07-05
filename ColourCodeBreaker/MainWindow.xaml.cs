@@ -166,6 +166,16 @@ namespace ColourCodeBreaker
             if (ColourButton != 0 && Position >= 1 && Position <= pgbuttons.Length)
             {
                 pgbuttons[Position - 1].Background = new SolidColorBrush(Colours[ColourButton - 1]);
+
+                if (ColourButton == 3 || ColourButton == 4 || ColourButton == 6)
+                {
+                    pgbuttons[Position - 1].Foreground = new SolidColorBrush(Colors.DimGray);
+                }
+                else
+                {
+                    pgbuttons[Position - 1].Foreground = new SolidColorBrush(Colors.LightGray);
+                }
+
                 label_Info.Content = "The colour was placed in position " + Position.ToString();
                 playerGuess[Position - 1] = ColourButton;
                 ColourButton = 0;
