@@ -20,7 +20,7 @@
                 <Button x:Name="btnPG2" Content="2" FontSize="24" Margin="200,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" Width="80" Background="DimGray" Foreground="LightGray" Click="btnPG2_Click"/>
                 <Button x:Name="btnPG3" Content="3" FontSize="24" Margin="300,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" Width="80" Background="DimGray" Foreground="LightGray" Click="btnPG3_Click"/>
                 <Button x:Name="btnPG4" Content="4" FontSize="24" Margin="400,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="80" Width="80" Background="DimGray" Foreground="LightGray" Click="btnPG4_Click"/>
-                <Button x:Name="btnConfirm" Content="Confirm choice" FontSize="14" Margin="410,160,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="120" Click="btnConfirm_Click"/>
+                <Button x:Name="btnConfirm" Content="Confirm choice" FontSize="14" Margin="410,165,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="120" Click="btnConfirm_Click"/>
                 <Label x:Name="label_Feedback1" HorizontalAlignment="Left" Margin="510,21,0,0" VerticalAlignment="Top" Height="15" Width="15" Background="Gray"/>
                 <Label x:Name="label_Feedback2" HorizontalAlignment="Left" Margin="510,42,0,0" VerticalAlignment="Top" Height="15" Width="15" Background="Gray"/>
                 <Label x:Name="label_Feedback3" HorizontalAlignment="Left" Margin="510,63,0,0" VerticalAlignment="Top" Height="15" Width="15" Background="Gray"/>
@@ -36,9 +36,9 @@
         <GroupBox x:Name="groupBox_Difficulty" Header=" Settings " Margin="630,150,0,0" BorderThickness="0.4" Foreground="LightGray" HorizontalAlignment="Left" VerticalAlignment="Top" Width="260" Height="140">
             <Grid>
                 <CheckBox x:Name="checkBox_DuplicateColours" Content=" Allow duplicate colours" HorizontalAlignment="Left" Margin="14,10,0,0" VerticalAlignment="Top" Foreground="LightGray" FontSize="14" IsChecked="True" Checked="checkBox_DuplicateColours_Checked" Unchecked="checkBox_DuplicateColours_Unchecked"/>
-                <Label x:Name="labelDifficulty" Content="Current difficulty:" FontSize="14" Foreground="LightGray" Margin="10,45,0,0"/>
-                <Label x:Name="labelDisplayDiff" Content="[difficulty]" FontSize="14" Foreground="LightGray" Margin="125,45,0,0" VerticalAlignment="Top"/>
-                <Button x:Name="btnDifficulty" Content="Change difficulty" HorizontalAlignment="Left" Margin="15,80,0,0" VerticalAlignment="Top" Height="25" Width="130" FontSize="14" Click="btnDifficulty_Click"/>
+                <Label x:Name="labelDifficulty" Content="Current difficulty:" FontSize="14" Foreground="LightGray" Margin="10,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label x:Name="labelDisplayDiff" Content="[difficulty]" FontSize="14" Foreground="LightGray" Margin="125,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <Button x:Name="btnDifficulty" Content="Change difficulty" HorizontalAlignment="Left" Margin="15,75,0,0" VerticalAlignment="Top" Height="30" Width="130" FontSize="14" Click="btnDifficulty_Click"/>
             </Grid>
         </GroupBox>
         <GroupBox x:Name="groupBox_Info" Header=" Game Information " HorizontalAlignment="Left" Margin="40,305,0,0" VerticalAlignment="Top" Height="56" Width="850" BorderThickness="0.4">

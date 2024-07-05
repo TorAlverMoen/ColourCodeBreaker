@@ -18,12 +18,13 @@ namespace ColourCodeBreaker
 
         int ColourButton = 0; // Button id: Which button was clicked: 0 = none, 1 = Read, 2 = Green, 3 = Yellow, 4 = Orange, 5 = Blue, 6 = White
         int Position = 0;     // Position Id: Which of the four positions to put the currently selected colour
-        //int Difficulty = 0;   // 0 = easy (20 turns), 1 = medium (10 turns), 2 = hard (5 turns)
+        int Difficulty = 0;   // 0 = easy (20 turns), 1 = medium (10 turns), 2 = hard (5 turns)
         int CurrentTurn = 20;
         bool AllowDuplicateColours = false;
         string appVersion = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "-----";
         int CorrectPlacement = 0;
         int CorrectColour = 0;
+        bool bIsGameOngoing = false;
 
         bool[] Pos = { false, false, false, false };
         int[] CorrectCombinationIndexes = { 0, 1, 2, 3, 4, 5 };
@@ -43,6 +44,9 @@ namespace ColourCodeBreaker
             pgbuttons = [btnPG1, btnPG2, btnPG3, btnPG4];   // Init position buttons array
             feedbackLabels = [label_Feedback1, label_Feedback2, label_Feedback3, label_Feedback4]; // Init feedback array
             NewGame();
+            SetTurns();
+            DisplayTurns();
+            DisplayDifficulty();
         }
 
         private void ResetColourPositions()
@@ -71,6 +75,16 @@ namespace ColourCodeBreaker
             if (ColourButton >= 1 && ColourButton <= buttons.Length)
             {
                 buttons[ColourButton - 1].Background = new SolidColorBrush(Colours[ColourButton - 1]);
+            }
+        }
+
+        private void SetTurns()
+        {
+            switch (Difficulty)
+            {
+                case 0: CurrentTurn = 20; break;   // Easy
+                case 1: CurrentTurn = 10; break;   // Medium
+                case 2: CurrentTurn = 5; break;    // Hard
             }
         }
 
@@ -121,6 +135,10 @@ namespace ColourCodeBreaker
             ResetPlayerGuessArray();
             GenerateCode();
             ResetFeedbackLabels();
+            bIsGameOngoing = false;
+            btnDifficulty.IsEnabled = true;
+            SetTurns();
+            DisplayTurns();
         }
 
         private void ColourWasChosen()
@@ -135,7 +153,14 @@ namespace ColourCodeBreaker
         {
             btnConfirm.IsEnabled = true;
             SetBrightButtonColours();
+            ResetFeedbackLabels();
             Pos[Position - 1] = true;
+
+            if (!bIsGameOngoing)
+            {
+                bIsGameOngoing = true;
+                btnDifficulty.IsEnabled = false;   // This must be set to true at 'New game', 'player win' or 'player lose'
+            }
 
             if (ColourButton != 0 && Position >= 1 && Position <= pgbuttons.Length)
             {
@@ -208,9 +233,38 @@ namespace ColourCodeBreaker
             }
         }
 
-        private void UpdateTurns()
+        private void DisplayTurns()
         {
-            labelTurnsDisplay.Content = CurrentTurn.ToString();
+            if (CurrentTurn <= 0)
+            {
+                // Player loses
+            }
+            else
+            {
+                labelTurnsDisplay.Content = CurrentTurn.ToString();
+            }
+        }
+
+        private void DisplayDifficulty()
+        {
+            switch (Difficulty)
+            {
+                case 0: labelDisplayDiff.Content = "Easy"; break;
+                case 1: labelDisplayDiff.Content = "Medium"; break;
+                case 2: labelDisplayDiff.Content = "Hard"; break;
+            }
+        }
+
+        private void UpdateDifficulty()
+        {
+            Difficulty++;
+            if (Difficulty > 2)
+            {
+                Difficulty = 0;
+            }
+            DisplayDifficulty();
+            SetTurns();
+            DisplayTurns();
         }
 
         private void ResetFeedbackLabels()
@@ -252,14 +306,16 @@ namespace ColourCodeBreaker
             }
             else
             {
+                CurrentTurn--;
+                DisplayTurns();
                 CheckSolution();
                 DisplayFeedback();
-                // TODO: Move to history
             }
         }
 
         private void btnDifficulty_Click(object sender, RoutedEventArgs e)
         {
+            UpdateDifficulty();
         }
 
         private void btnPG1_Click(object sender, RoutedEventArgs e)
