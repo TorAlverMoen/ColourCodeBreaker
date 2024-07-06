@@ -9,4 +9,12 @@
     <AssemblyVersion>0.7.0.0</AssemblyVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Background.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Background.png" />
+  </ItemGroup>
+
 </Project>
