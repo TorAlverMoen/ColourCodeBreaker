@@ -140,6 +140,7 @@ namespace ColourCodeBreaker
             bIsGameOngoing = false;
             bDidThePlayerWin = false;
             btnDifficulty.IsEnabled = true;
+            checkBox_DuplicateColours.IsEnabled = true;
             SetTurns();
             DisplayTurns();
         }
@@ -162,7 +163,8 @@ namespace ColourCodeBreaker
             if (!bIsGameOngoing)
             {
                 bIsGameOngoing = true;
-                btnDifficulty.IsEnabled = false;   // This must be set to true at 'New game', 'player win' or 'player lose'
+                btnDifficulty.IsEnabled = false;
+                checkBox_DuplicateColours.IsEnabled = false;
             }
 
             if (ColourButton != 0 && Position >= 1 && Position <= pgbuttons.Length)
