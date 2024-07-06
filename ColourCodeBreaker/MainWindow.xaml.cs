@@ -55,6 +55,7 @@ namespace ColourCodeBreaker
             foreach (var button in pgbuttons)
             {
                 button.Background = new SolidColorBrush(Colors.DimGray);
+                button.Foreground = new SolidColorBrush(Colors.LightGray);
             }
 
             for (int i = 0; i < Pos.Length; i++)
