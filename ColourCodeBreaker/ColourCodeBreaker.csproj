@@ -7,12 +7,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <PackageIcon></PackageIcon>
+    <PackageIcon>ColourCodeBreaker.ico</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Background.png" />
-    <None Remove="ColourCodeBreaker.ico" />
     <None Remove="SplashScreen.png" />
   </ItemGroup>
 
@@ -20,6 +19,13 @@
     <Resource Include="Background.png" />
     <Resource Include="ColourCodeBreaker.ico" />
     <Resource Include="SplashScreen.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ColourCodeBreaker.ico">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
