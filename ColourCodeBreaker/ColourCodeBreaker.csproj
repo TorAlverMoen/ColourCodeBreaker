@@ -11,10 +11,12 @@
 
   <ItemGroup>
     <None Remove="Background.png" />
+    <None Remove="SplashScreen.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Background.png" />
+    <Resource Include="SplashScreen.png" />
   </ItemGroup>
 
 </Project>
