@@ -169,7 +169,7 @@ namespace ColourCodeBreaker
 
                 if (ColourButton == 3 || ColourButton == 4 || ColourButton == 6)
                 {
-                    pgbuttons[Position - 1].Foreground = new SolidColorBrush(Colors.DimGray);
+                    pgbuttons[Position - 1].Foreground = new SolidColorBrush(Colors.Black);
                 }
                 else
                 {
