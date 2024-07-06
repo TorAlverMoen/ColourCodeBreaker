@@ -7,15 +7,18 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <AssemblyVersion>0.7.0.0</AssemblyVersion>
+    <PackageIcon></PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Background.png" />
+    <None Remove="ColourCodeBreaker.ico" />
     <None Remove="SplashScreen.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Background.png" />
+    <Resource Include="ColourCodeBreaker.ico" />
     <Resource Include="SplashScreen.png" />
   </ItemGroup>
 
