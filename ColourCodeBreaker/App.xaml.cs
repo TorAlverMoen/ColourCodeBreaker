@@ -13,7 +13,7 @@ namespace ColourCodeBreaker
 
             SplashScreen splash = new SplashScreen("SplashScreen.png");
             splash.Show(autoClose: false);
-            Thread.Sleep(4000);
+            Thread.Sleep(3000);
             splash.Close(TimeSpan.FromMilliseconds(500));
         }
     }
