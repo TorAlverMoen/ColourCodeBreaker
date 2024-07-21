@@ -32,7 +32,7 @@ namespace ColourCodeBreaker
         Button[] buttons = new Button[6];
         Button[] pgbuttons = new Button[4];
         Color[] Colours = [ Colors.Red, Colors.Green, Colors.Yellow, Colors.Orange, Colors.Blue, Colors.White ];
-        Color[] DimColours = [ Colors.DarkRed, Colors.DarkGreen, Color.FromRgb(139, 128, 0), Colors.DarkOrange, Colors.DarkBlue, Color.FromRgb(225, 217, 209) ];
+        Color[] DimColours = [ Colors.DarkRed, Colors.DarkGreen, Color.FromRgb(139, 128, 0), Color.FromRgb(195, 80, 0), Colors.DarkBlue, Color.FromRgb(225, 217, 209) ];
         int[] solution = { 0, 0, 0, 0 };
         int[] playerGuess = { 0, 0, 0, 0 };
         Label[] feedbackLabels = new Label[4];
