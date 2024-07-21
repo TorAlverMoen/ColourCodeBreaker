@@ -81,6 +81,14 @@ namespace ColourCodeBreaker
             }
         }
 
+        private void SetBrightAllButtonColours()
+        {
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                buttons[i].Background = new SolidColorBrush(Colours[i]);
+            }
+        }
+
         private void SetTurns()
         {
             switch (Difficulty)
@@ -149,6 +157,7 @@ namespace ColourCodeBreaker
         {
             btnConfirm.IsEnabled = false;
             label_Info.Content = "Please choose a position for the selected colour.";
+            SetBrightAllButtonColours();
             SetDimButtonColours();
             // Now wait the for player to choose location of the colour
         }
