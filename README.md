@@ -8,7 +8,7 @@ One thing I have not done yet is a history view that can display all players' gu
 
 ---
 
-This version was made in C# WPF with [Visual Studio Community](https://visualstudio.microsoft.com/) for the app itself. The splash screen and window background images, as well as the icon, were created using [Blender](https://www.blender.org/) for the 3D models and [Unreal Engine 5](https://www.unrealengine.com/) for the materials and rendering.
+This version was made in C# WPF with [Visual Studio Community](https://visualstudio.microsoft.com/) for the app itself. The splash screen and window background images, as well as the icon, were created using [Blender](https://www.blender.org/) for the 3D models and [Unreal Engine 5](https://www.unrealengine.com/) for the materials and rendering and also [GIMP](https://www.gimp.org) for finalizing graphical elements.
 
 #### Screenshot:
 ![screenshot](doc/screenshot.png)
