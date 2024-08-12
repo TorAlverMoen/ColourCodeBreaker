@@ -65,19 +65,18 @@ namespace ColourCodeBreaker
             }
         }
 
-        private void SetDimButtonColours()
+        private void SetButtonColour(bool bColourIsDim)
         {
             if (ColourButton >= 1 && ColourButton <= buttons.Length)
             {
-                buttons[ColourButton - 1].Background = new SolidColorBrush(DimColours[ColourButton - 1]);
-            }
-        }
-
-        private void SetBrightButtonColours()
-        {
-            if (ColourButton >= 1 && ColourButton <= buttons.Length)
-            {
-                buttons[ColourButton - 1].Background = new SolidColorBrush(Colours[ColourButton - 1]);
+                if (!bColourIsDim)
+                {
+                    buttons[ColourButton - 1].Background = new SolidColorBrush(Colours[ColourButton - 1]);
+                }
+                else
+                {
+                    buttons[ColourButton - 1].Background = new SolidColorBrush(DimColours[ColourButton - 1]);
+                }
             }
         }
 
@@ -158,14 +157,14 @@ namespace ColourCodeBreaker
             btnConfirm.IsEnabled = false;
             label_Info.Content = "Please choose a position for the selected colour.";
             SetBrightAllButtonColours();
-            SetDimButtonColours();
+            SetButtonColour(true);
             // Now wait the for player to choose location of the colour
         }
 
         private void PlaceColour()
         {
             btnConfirm.IsEnabled = true;
-            SetBrightButtonColours();
+            SetButtonColour(false);
             ResetFeedbackLabels();
             Pos[Position - 1] = true;
 
