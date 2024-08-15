@@ -144,6 +144,7 @@ namespace ColourCodeBreaker
             ResetPlayerGuessArray();
             GenerateCode();
             ResetFeedbackLabels();
+            label_Info.Content = "Welcome to Colour Code Breaker " + appVersion + " by Tor Alver Moen";
             bIsGameOngoing = false;
             bDidThePlayerWin = false;
             btnDifficulty.IsEnabled = true;
