@@ -1,10 +1,12 @@
 ![Colour Code Breaker](ColourCodeBreaker/SplashScreen.png)
 
-The original version of this app started as a possible puzzle to be included in another game, but it quickly took on a life of its own and became the original Code Breaker app.
+The original version of this app started as a potential puzzle to be included in another game, but it quickly took on a life of its own and became the original Code Breaker app.
 
-There are many weaknesses in that version, and one of the biggest is that you can't edit the colour code during input, so I decided to make an upgraded version that addressed the issues from the original.
+There are many weaknesses in that version, and one of the biggest is that you can't edit the color code during input. So, I decided to create an upgraded version that addresses the issues from the original.
 
-One thing I have not done yet is a history view that can display all players' guesses in a game. This is a possible future update for this version.
+One thing I have not done yet is a history view that can display all the player's guesses in a game. This is a possible future update for this version.
+
+
 
 ---
 
