@@ -4,7 +4,7 @@ The original version of this app started as a potential puzzle to be included in
 
 There are many weaknesses in that version, and one of the biggest is that you can't edit the color code during input. So, I decided to create an upgraded version that addresses the issues from the original.
 
-One thing I have not done yet is a history view that can display all the player's guesses in a game. This is a possible future update for this version.
+One thing I have not done yet is a history view that can display all the player's guesses in a game. This is a possible future update.
 
 
 
