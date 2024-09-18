@@ -4,14 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColourCodeBreaker" mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="HowToPlay" Height="500" Width="800" Background="#444444" Foreground="LightGray" ResizeMode="NoResize">
+        Title="HowToPlay" Height="530" Width="800" Background="#444444" Foreground="LightGray" ResizeMode="NoResize">
     <Grid>
-        <Rectangle HorizontalAlignment="Center" Height="390" Stroke="LightGray" VerticalAlignment="Center" Width="730"/>
+        <Rectangle HorizontalAlignment="Center" Height="420" Stroke="LightGray" VerticalAlignment="Center" Width="730"/>
         <TextBlock x:Name="textBlock_Title" HorizontalAlignment="Center" Margin="0,45,0,0" TextWrapping="Wrap" Text="Colour Code Breaker" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
         <TextBlock x:Name="textBlock_HowToPlayOne" Text="Try to guess a colour pattern in both order and colour within the turns allowed by the currently selected difficulty level." TextWrapping="Wrap" Margin="0,90,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="600" FontSize="14"/>
         <TextBlock x:Name="textBlock_HowToPlayTwo" Text="First, select a colour from the list on the left and then select the position where to place it. Repeat this process until all four colour positions have been filled. Confirm your choice when you are happy with the selected colours." TextWrapping="Wrap" Margin="0,140,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="600" FontSize="14"/>
         <TextBlock x:Name="textBlock_HowToPlayThree" Text="When a turn finishes, the computer provides feedback through white and black squares. If a square remains grey, you have chosen a colour that is not part of the solution. A white square means that you have a colour that is in the solution but is in the wrong place. A black square means that you have a colour that is in the solution and in the correct place." TextWrapping="Wrap" Margin="0,210,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="600" FontSize="14"/>
         <TextBlock x:Name="textBlock_HowToPlayFour" Text="If you guess the correct colour sequence, you win. If not, the game advances to the next turn or ends if there are no more turns." TextWrapping="Wrap" Margin="0,300,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="600" FontSize="14"/>
+        <TextBlock x:Name="textBlock_HowToPlayFive" Text="'Allow duplicate colours' can generate a solution where the same colour is repeated. It only takes effect when a new game is started." TextWrapping="Wrap" Margin="0,350,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="600" FontSize="14"/>
         <Button x:Name="btnCloseHowToPlay" Content="OK" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="60" Width="80" Height="30" Click="btnCloseHowToPlay_Click"/>
     </Grid>
 </Window>
