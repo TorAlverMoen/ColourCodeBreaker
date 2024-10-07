@@ -326,7 +326,7 @@ namespace ColourCodeBreaker
             }
         }
 
-        private void btnConfirm_Click(object sender, RoutedEventArgs e)
+        private void btnConfirm_Click(object sender, RoutedEventArgs e)     // This is the game loop
         {
             bool positionTemp = Array.Exists(Pos, element => element == false);
             if (positionTemp)
