@@ -16,7 +16,7 @@ namespace ColourCodeBreaker
             Loaded += Window_Loaded;
         }
 
-        int ColourButton = 0; // Button id: Which button was clicked: 0 = none, 1 = Read, 2 = Green, 3 = Yellow, 4 = Orange, 5 = Blue, 6 = White
+        int ColourButton = 0; // Button id: Which button was clicked: 0 = none, 1 = Red, 2 = Green, 3 = Yellow, 4 = Orange, 5 = Blue, 6 = White
         int Position = 0;     // Position Id: Which of the four positions to put the currently selected colour
         int Difficulty = 0;   // 0 = easy (20 turns), 1 = medium (10 turns), 2 = hard (5 turns)
         int CurrentTurn = 20;
@@ -248,7 +248,7 @@ namespace ColourCodeBreaker
 
             if (CorrectPlacement < pgbuttons.Length)
             {
-                // TEST: Check correct colours in the wrong place
+                // Check correct colours in the wrong place
                 CheckCorrectColoursPlacedWrong();
             }
             if (CorrectPlacement == pgbuttons.Length)
