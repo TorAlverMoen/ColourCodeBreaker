@@ -16,6 +16,8 @@ namespace ColourCodeBreaker
             Loaded += Window_Loaded;
         }
 
+        const int CODE_LENGTH = 4;
+
         int ColourButton = 0; // Button id: Which button was clicked: 0 = none, 1 = Red, 2 = Green, 3 = Yellow, 4 = Orange, 5 = Blue, 6 = White
         int Position = 0;     // Position Id: Which of the four positions to put the currently selected colour
         int Difficulty = 0;   // 0 = easy (20 turns), 1 = medium (10 turns), 2 = hard (5 turns)
@@ -26,6 +28,7 @@ namespace ColourCodeBreaker
         int CorrectColour = 0;
         bool bIsGameOngoing = false;
         bool bDidThePlayerWin = false;
+        int HistoryIndex = 0;
 
         bool[] Pos = { false, false, false, false };
         int[] CorrectCombinationIndexes = { 0, 1, 2, 3, 4, 5 };
@@ -36,6 +39,7 @@ namespace ColourCodeBreaker
         int[] solution = { 0, 0, 0, 0 };
         int[] playerGuess = { 0, 0, 0, 0 };
         Label[] feedbackLabels = new Label[4];
+        int[,] HistoryMoves = new int[20, 6];   // Array to hold the moves history
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -151,6 +155,8 @@ namespace ColourCodeBreaker
             checkBox_DuplicateColours.IsEnabled = true;
             SetTurns();
             DisplayTurns();
+            HistoryIndex = 0;
+            Array.Clear(HistoryMoves, 0, HistoryMoves.Length);
         }
 
         private void ColourWasChosen()
@@ -259,6 +265,20 @@ namespace ColourCodeBreaker
             }
         }
 
+        private void StoreMovesInHistory()
+        {
+            // A move is stored with 6 numbers: positions 0-3 = colours, 4-5 = feedback
+            // The colours use the following numbers: 0 = none, 1 = Red, 2 = Green, 3 = Yellow, 4 = Orange, 5 = Blue, 6 = White
+            // The feedback are stored with the number of correct placements first (black) and the number of incorrectly placed colours second (white)
+
+            for (int i = 0; i < CODE_LENGTH; i++)
+            {
+                HistoryMoves[HistoryIndex, i] = playerGuess[i];             // Store the player guess colour values
+            }
+            HistoryMoves[HistoryIndex, CODE_LENGTH] = CorrectPlacement;     // Store the number of correctly placed colours (black)
+            HistoryMoves[HistoryIndex, CODE_LENGTH + 1] = CorrectColour;    // Store the number of correct colours in the wrong place (white)
+        }
+
         private void DisplayTurns()
         {
             if (CurrentTurn <= 0)
@@ -326,6 +346,7 @@ namespace ColourCodeBreaker
             }
         }
 
+
         private void btnConfirm_Click(object sender, RoutedEventArgs e)     // This is the game loop
         {
             bool positionTemp = Array.Exists(Pos, element => element == false);
@@ -338,12 +359,18 @@ namespace ColourCodeBreaker
                 CurrentTurn--;
                 DisplayTurns();
                 CheckSolution();
+                StoreMovesInHistory();
                 DisplayFeedback();
                 if (bDidThePlayerWin)
                 {
                     MessageBox.Show("You did it! The correct code was found!", "You win!", MessageBoxButton.OK);
                     NewGame();
                 }
+                // DEBUG START (History)
+                label_Info.Content = HistoryMoves[HistoryIndex, 0] + ", " + HistoryMoves[HistoryIndex, 1] + ", " + HistoryMoves[HistoryIndex, 2] + ", " +
+                    HistoryMoves[HistoryIndex, 3] + ", " + HistoryMoves[HistoryIndex, 4] + ", " + HistoryMoves[HistoryIndex, 5];
+                // DEBUG END
+                HistoryIndex++;
             }
         }
 
