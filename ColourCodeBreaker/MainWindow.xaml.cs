@@ -284,8 +284,8 @@ namespace ColourCodeBreaker
             if (CurrentTurn <= 0)
             {
                 // Player loses
-                label_Info.Content = "You lose! The correct colour code was not found in the selected number of turns!";
-                MessageBox.Show("The correct colour code was not found in the selected number of turns!", "You lose!", MessageBoxButton.OK);
+                label_Info.Content = "You lose! The correct colour code was not found!";
+                MessageBox.Show("The correct colour code was not found!", "You lose!", MessageBoxButton.OK);
                 NewGame();
             }
             else
