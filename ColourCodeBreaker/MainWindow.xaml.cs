@@ -261,7 +261,7 @@ namespace ColourCodeBreaker
             {
                 // The player wins
                 bDidThePlayerWin = true;
-                label_Info.Content = "You win! The correct code was found!";
+                label_Info.Content = "You win! The correct colour code was found!";
             }
         }
 
