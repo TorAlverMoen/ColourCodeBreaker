@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ColourCodeBreaker"
         mc:Ignorable="d"
         Title="HistoryView" Height="500" Width="500" Background="#444444"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Label x:Name="label_MovesHistory" Content="Moves history" HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" FontSize="20" Foreground="LightGray"/>
     </Grid>
