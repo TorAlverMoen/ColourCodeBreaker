@@ -367,8 +367,7 @@ namespace ColourCodeBreaker
                     NewGame();
                 }
                 // DEBUG START (History)
-                label_Info.Content = HistoryMoves[HistoryIndex, 0] + ", " + HistoryMoves[HistoryIndex, 1] + ", " + HistoryMoves[HistoryIndex, 2] + ", " +
-                    HistoryMoves[HistoryIndex, 3] + ", " + HistoryMoves[HistoryIndex, 4] + ", " + HistoryMoves[HistoryIndex, 5];
+                //label_Info.Content = HistoryMoves[HistoryIndex, 0] + ", " + HistoryMoves[HistoryIndex, 1] + ", " + HistoryMoves[HistoryIndex, 2] + ", " + HistoryMoves[HistoryIndex, 3] + ", " + HistoryMoves[HistoryIndex, 4] + ", " + HistoryMoves[HistoryIndex, 5];
                 // DEBUG END
                 HistoryIndex++;
             }
