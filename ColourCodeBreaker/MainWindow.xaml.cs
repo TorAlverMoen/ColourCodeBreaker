@@ -469,5 +469,11 @@ namespace ColourCodeBreaker
             HowToPlay gameRules = new HowToPlay();
             gameRules.ShowDialog();
         }
+
+        private void btnHistory_Click(object sender, RoutedEventArgs e)
+        {
+            HistoryView viewMoves = new HistoryView();
+            viewMoves.Show();
+        }
     }
 }
