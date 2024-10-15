@@ -451,11 +451,13 @@ namespace ColourCodeBreaker
         private void checkBox_DuplicateColours_Checked(object sender, RoutedEventArgs e)
         {
             AllowDuplicateColours = true;
+            GenerateCode();
         }
 
         private void checkBox_DuplicateColours_Unchecked(object sender, RoutedEventArgs e)
         {
             AllowDuplicateColours = false;
+            GenerateCode();
         }
 
         private void btnAbout_Click(object sender, RoutedEventArgs e)
