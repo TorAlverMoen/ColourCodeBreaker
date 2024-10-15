@@ -10,7 +10,7 @@
         <Label x:Name="labelVersion" Content="[version]" HorizontalAlignment="Center" Margin="0, 70" Foreground="LightGray" VerticalAlignment="Top"/>
         <TextBlock x:Name="copyright" Text="&#169; 2024 Tor Alver Moen" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBlock x:Name="textInfo" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,80,0,0" TextWrapping="Wrap" VerticalAlignment="Center">
-            Made in C# (WPF) with Visual Studio Community, <LineBreak/>Blender and Unreal Engine 5 (render)
+            Made in C# (WPF) with Visual Studio Community, <LineBreak/>Blender and Unreal Engine 5 (offline render)
         </TextBlock>
         <Button x:Name="btnCloseAbout" Content="OK" Width="80" Height="30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20" Click="btnCloseAbout_Click"/>
     </Grid>

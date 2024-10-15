@@ -10,7 +10,7 @@ One thing missing from the project is a history view that can display all the pl
 
 ---
 
-This version was made in C# WPF with [Visual Studio Community](https://visualstudio.microsoft.com/) for the app itself. The splash screen and window background images, as well as the icon, were created using [Blender](https://www.blender.org/) for the 3D models and [Unreal Engine 5](https://www.unrealengine.com/) for the materials and rendering and also [GIMP - GNU Image Manipulation Program](https://www.gimp.org) for finalizing graphical elements.
+This version was made in C# WPF with [Visual Studio Community](https://visualstudio.microsoft.com/) for the app itself. The splash screen and window background images, as well as the icon, were created using [Blender](https://www.blender.org/) for the 3D models and [Unreal Engine 5](https://www.unrealengine.com/) for rendering the splash screen and also [GIMP - GNU Image Manipulation Program](https://www.gimp.org) for finalizing graphical elements.
 
 #### Screenshot:
 ![screenshot](doc/screenshot.png)
