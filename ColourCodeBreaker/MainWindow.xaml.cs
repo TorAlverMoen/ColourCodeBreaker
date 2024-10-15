@@ -22,7 +22,7 @@ namespace ColourCodeBreaker
         int Position = 0;     // Position Id: Which of the four positions to put the currently selected colour
         int Difficulty = 0;   // 0 = easy (20 turns), 1 = medium (10 turns), 2 = hard (5 turns)
         int CurrentTurn = 20;
-        bool AllowDuplicateColours = false;
+        bool bAllowDuplicateColours = false;
         string appVersion = "v" + Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "-----";
         int CorrectPlacement = 0;
         int CorrectColour = 0;
@@ -114,7 +114,7 @@ namespace ColourCodeBreaker
         {
             Random random = new Random();
 
-            if (AllowDuplicateColours)
+            if (bAllowDuplicateColours)
             {
                 for (int i = 0; i < solution.Length; i++)
                 {
@@ -450,13 +450,13 @@ namespace ColourCodeBreaker
 
         private void checkBox_DuplicateColours_Checked(object sender, RoutedEventArgs e)
         {
-            AllowDuplicateColours = true;
+            bAllowDuplicateColours = true;
             GenerateCode();
         }
 
         private void checkBox_DuplicateColours_Unchecked(object sender, RoutedEventArgs e)
         {
-            AllowDuplicateColours = false;
+            bAllowDuplicateColours = false;
             GenerateCode();
         }
 
