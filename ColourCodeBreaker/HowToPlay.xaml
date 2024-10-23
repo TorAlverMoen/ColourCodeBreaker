@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColourCodeBreaker" mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="HowToPlay" Height="530" Width="800" Background="#444444" Foreground="LightGray" ResizeMode="NoResize">
+        Title="HowToPlay" Height="530" Width="800" Background="#444444" Foreground="LightGray" ResizeMode="NoResize" Icon="ColourCodeBreaker.ico">
     <Grid>
         <Rectangle HorizontalAlignment="Center" Height="420" Stroke="LightGray" VerticalAlignment="Center" Width="730"/>
         <TextBlock x:Name="textBlock_Title" HorizontalAlignment="Center" Margin="0,45,0,0" TextWrapping="Wrap" Text="Colour Code Breaker" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
