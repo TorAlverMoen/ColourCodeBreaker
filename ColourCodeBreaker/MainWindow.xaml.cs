@@ -16,8 +16,6 @@ namespace ColourCodeBreaker
             Loaded += Window_Loaded;
         }
 
-        const int CODE_LENGTH = 4;
-
         int ColourButton = 0; // Button id: Which button was clicked: 0 = none, 1 = Red, 2 = Green, 3 = Yellow, 4 = Orange, 5 = Blue, 6 = White
         int Position = 0;     // Position Id: Which of the four positions to put the currently selected colour
         int Difficulty = 0;   // 0 = easy (20 turns), 1 = medium (10 turns), 2 = hard (5 turns)
@@ -271,12 +269,12 @@ namespace ColourCodeBreaker
             // The colours use the following numbers: 0 = none, 1 = Red, 2 = Green, 3 = Yellow, 4 = Orange, 5 = Blue, 6 = White
             // The feedback are stored with the number of correct placements first (black) and the number of incorrectly placed colours second (white)
 
-            for (int i = 0; i < CODE_LENGTH; i++)
+            for (int i = 0; i < pgbuttons.Length; i++)
             {
-                HistoryMoves[HistoryIndex, i] = playerGuess[i];             // Store the player guess colour values
+                HistoryMoves[HistoryIndex, i] = playerGuess[i];                 // Store the player guess colour values
             }
-            HistoryMoves[HistoryIndex, CODE_LENGTH] = CorrectPlacement;     // Store the number of correctly placed colours (black)
-            HistoryMoves[HistoryIndex, CODE_LENGTH + 1] = CorrectColour;    // Store the number of correct colours in the wrong place (white)
+            HistoryMoves[HistoryIndex, pgbuttons.Length] = CorrectPlacement;    // Store the number of correctly placed colours (black)
+            HistoryMoves[HistoryIndex, pgbuttons.Length + 1] = CorrectColour;   // Store the number of correct colours in the wrong place (white)
         }
 
         private void DisplayTurns()
