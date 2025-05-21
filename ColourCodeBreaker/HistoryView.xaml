@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColourCodeBreaker"
         mc:Ignorable="d"
-        Title="HistoryView" Height="500" Width="500" Background="#444444"
-        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="HistoryView" Height="500" Width="600" Background="#444444"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Icon="ColourCodeBreaker.ico">
     <Grid x:Name="PlayerMovesHistory">
         <Label x:Name="label_MovesHistory" Content="Moves history" HorizontalAlignment="Center" Margin="0,15,0,0" VerticalAlignment="Top" FontSize="20" Foreground="LightGray"/>
     </Grid>
