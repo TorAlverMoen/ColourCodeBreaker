@@ -120,12 +120,12 @@ namespace ColourCodeBreaker
             }
             else
             {
-                for (int i = 0; i < CorrectCombinationIndexes.Length; i++)
+                for (int i = CorrectCombinationIndexes.Length - 1; i > 0; i--)
                 {
-                    int randomIndex = random.Next(CorrectCombinationIndexes.Length);
-                    int tempIndex = CorrectCombinationIndexes[randomIndex];
-                    CorrectCombinationIndexes[randomIndex] = CorrectCombinationIndexes[i];
-                    CorrectCombinationIndexes[i] = tempIndex;
+                    int randomIndex = random.Next(i + 1);
+                    int tempValue = CorrectCombinationIndexes[i];
+                    CorrectCombinationIndexes[i] = CorrectCombinationIndexes[randomIndex];
+                    CorrectCombinationIndexes[randomIndex] = tempValue;
                 }
 
                 int tempStartIndex = random.Next(3);
