@@ -37,10 +37,12 @@
         </GroupBox>
         <GroupBox x:Name="groupBox_Difficulty" Header=" Settings " Margin="630,150,0,0" BorderThickness="0.4" Foreground="LightGray" HorizontalAlignment="Left" VerticalAlignment="Top" Width="260" Height="140">
             <Grid>
-                <CheckBox x:Name="checkBox_DuplicateColours" Content=" Allow duplicate colours" HorizontalAlignment="Left" Margin="14,10,0,0" VerticalAlignment="Top" Foreground="LightGray" FontSize="14" IsChecked="True" Checked="checkBox_DuplicateColours_Checked" Unchecked="checkBox_DuplicateColours_Unchecked"/>
-                <Label x:Name="labelDifficulty" Content="Current difficulty:" FontSize="14" Foreground="LightGray" Margin="10,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Label x:Name="labelDisplayDiff" Content="[difficulty]" FontSize="14" Foreground="LightGray" Margin="125,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                <Button x:Name="btnDifficulty" Content="Change difficulty" HorizontalAlignment="Left" Margin="15,75,0,0" VerticalAlignment="Top" Height="30" Width="130" FontSize="14" Click="btnDifficulty_Click"/>
+                <CheckBox x:Name="checkBox_DuplicateColours" Content="" HorizontalAlignment="Left" Margin="14,15,0,0" VerticalAlignment="Top" Foreground="LightGray" FontSize="14" IsChecked="True" Checked="checkBox_DuplicateColours_Checked" Unchecked="checkBox_DuplicateColours_Unchecked"/>
+                <Label x:Name="DuplicateColours1stLine" Content="Allow duplicate colours" HorizontalAlignment="Left" Margin="33,0,0,0" VerticalAlignment="Top" Foreground="LightGray" FontSize="14"/>
+                <Label x:Name="DuplicateColours2ndLine" Content="in solution" HorizontalAlignment="Left" Margin="33,18,0,0" VerticalAlignment="Top" Foreground="LightGray" FontSize="14"/>
+                <Label x:Name="labelDifficulty" Content="Current:" FontSize="14" Foreground="LightGray" Margin="160,55,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label x:Name="labelDisplayDiff" Content="[difficulty]" FontSize="14" Foreground="LightGray" Margin="160,75,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <Button x:Name="btnDifficulty" Content="Change difficulty" HorizontalAlignment="Left" Margin="15,65,0,0" VerticalAlignment="Top" Height="30" Width="130" FontSize="14" Click="btnDifficulty_Click"/>
             </Grid>
         </GroupBox>
         <GroupBox x:Name="groupBox_Info" Header=" Game Information " HorizontalAlignment="Left" Margin="40,305,0,0" VerticalAlignment="Top" Height="56" Width="850" BorderThickness="0.4">
