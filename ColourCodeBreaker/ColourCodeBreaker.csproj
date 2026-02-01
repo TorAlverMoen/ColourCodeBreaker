@@ -8,11 +8,16 @@
     <UseWPF>true</UseWPF>
     <AssemblyVersion>1.0.5.0</AssemblyVersion>
     <PackageIcon>ColourCodeBreaker.ico</PackageIcon>
+    <ApplicationIcon>ColourCodeBreaker.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Background.png" />
     <None Remove="SplashScreen.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ColourCodeBreaker.ico" />
   </ItemGroup>
 
   <ItemGroup>
