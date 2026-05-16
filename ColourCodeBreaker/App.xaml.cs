@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Threading;
 
 namespace ColourCodeBreaker
 {
@@ -12,9 +13,37 @@ namespace ColourCodeBreaker
             base.OnStartup(e);
 
             SplashScreen splash = new SplashScreen("SplashScreen.png");
-            splash.Show(autoClose: false);
-            Thread.Sleep(3000);
-            splash.Close(TimeSpan.FromMilliseconds(500));
+            splash.Show(false);
+
+            DispatcherTimer timer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromSeconds(2)
+            };
+
+            timer.Tick += (s, args) =>
+            {
+                timer.Stop();
+
+                splash.Close(TimeSpan.FromMilliseconds(500));
+
+                // Show the main window after the splash screen closes
+                DispatcherTimer closeTimer = new DispatcherTimer
+                {
+                    Interval = TimeSpan.FromMilliseconds(500)
+                };
+
+                closeTimer.Tick += (s2, e2) =>
+                {
+                    closeTimer.Stop();
+
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                };
+
+                closeTimer.Start();
+            };
+
+            timer.Start();
         }
     }
 
